@@ -3321,4 +3321,3 @@ CloseBtn.Position = UDim2.new(0.959063113, 0, -0.0169996787, 0)
 	return ServerHold
 end
 Log("成功加载脚本，感谢使用走马观花X", 255,255,0, tostring(gFont))
-return bailib
