@@ -1,5 +1,5 @@
 local bailib = {}
-local Script = "白"
+local Script = "走马观花X"
 local gFont = "SourceSans"
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
