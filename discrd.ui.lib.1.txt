@@ -7,7 +7,6 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
-local pfp
 local user
 local tag
 local userinfo = {}
@@ -16,12 +15,11 @@ pcall(function()
 	userinfo = HttpService:JSONDecode(readfile("bailibinfo.txt"));
 end)
 
-pfp = userinfo["pfp"] or "rbxthumb://type=Asset&id=17366459583&w=150&h=150".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
+--pfp = userinfo["pfp"] or "rbxthumb://type=Asset&id=17366459583&w=150&h=150".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
 user =  userinfo["user"] or game.Players.LocalPlayer.Name
 tag = userinfo["tag"] or tostring(math.random(0,9999))
 
 local function SaveInfo()
-	userinfo["pfp"] = pfp
 	userinfo["user"] = user
 	userinfo["tag"] = tag
 	writefile("bailibinfo.txt", HttpService:JSONEncode(userinfo));
@@ -710,12 +708,12 @@ CloseBtn.Position = UDim2.new(0.959063113, 0, -0.0169996787, 0)
 	UserPanelUserIcon.AutoButtonColor = false
 	UserPanelUserIcon.Text = ""
 
-	UserPanelUserImage.Name = "UserPanelUserImage"
-	UserPanelUserImage.Parent = UserPanelUserIcon
-	UserPanelUserImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	UserPanelUserImage.BackgroundTransparency = 1.000
-	UserPanelUserImage.Size = UDim2.new(0, 71, 0, 71)
-	UserPanelUserImage.Image = pfp
+	--UserPanelUserImage.Name = "UserPanelUserImage"
+	--UserPanelUserImage.Parent = UserPanelUserIcon
+	--UserPanelUserImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	--UserPanelUserImage.BackgroundTransparency = 1.000
+	--UserPanelUserImage.Size = UDim2.new(0, 71, 0, 71)
+	--UserPanelUserImage.Image = pfp
 
 	UserPanelUserCircle.Name = "UserPanelUserCircle"
 	UserPanelUserCircle.Parent = UserPanelUserImage
@@ -943,8 +941,6 @@ CloseBtn.Position = UDim2.new(0.959063113, 0, -0.0169996787, 0)
 
 		ChangeBtn.MouseButton1Click:Connect(function()
 			pfp = tostring(AvatarTextbox.Text)
-			UserImage.Image = pfp 
-			UserPanelUserImage.Image = pfp
 			SaveInfo()
 
 			AvatarChange:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .2, true)
@@ -1015,9 +1011,6 @@ CloseBtn.Position = UDim2.new(0.959063113, 0, -0.0169996787, 0)
 		ResetBtn.TextSize = 13.000
 		
 		ResetBtn.MouseButton1Click:Connect(function()
-			pfp = "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
-			UserImage.Image = pfp 
-			UserPanelUserImage.Image = pfp
 			SaveInfo()
 
 			AvatarChange:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .2, true)
